@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const db = require("./config/key.js").mongoURI;
 const bodyParse = require("body-parser");
 const morgan = require("morgan");
+const user = require("./api/user");
 
 //MiddleWare
 app.use(bodyParse.urlencoded({ extended: false }));
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
   }
   next();
 });
+app.use("/user", user);
 
 mongoose
   .connect(db)
