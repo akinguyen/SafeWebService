@@ -14,7 +14,7 @@ router.get("/all", (req, res) => {
     }
   });
 });
-router.get("/:username", (req, res) => {
+router.get("username/:username", (req, res) => {
   User.findOne({ username: req.params.username })
     .then(result => {
       res.send(result);
