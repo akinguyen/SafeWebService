@@ -11,6 +11,11 @@ const User = new Schema({
   password: {
     type: String
   },
+  pastData: [
+    {
+      time: { type: String }
+    }
+  ],
   mon: [
     {
       time: { type: String }
