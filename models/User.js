@@ -3,16 +3,13 @@ const Schema = moongoose.Schema;
 
 const User = new Schema({
   username: {
-    type: String,
-    required: true
+    type: String
   },
   name: {
-    type: String,
-    required: true
+    type: String
   },
   password: {
-    type: String,
-    required: true
+    type: String
   },
   alert: [
     {
