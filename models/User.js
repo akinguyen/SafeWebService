@@ -11,12 +11,42 @@ const User = new Schema({
   password: {
     type: String
   },
-  alert: [
+  mon: [
     {
-      time: { type: String },
-      day: { type: String }
+      time: { type: String }
     }
   ],
+  tue: [
+    {
+      time: { type: String }
+    }
+  ],
+  wed: [
+    {
+      time: { type: String }
+    }
+  ],
+  thu: [
+    {
+      time: { type: String }
+    }
+  ],
+  fri: [
+    {
+      time: { type: String }
+    }
+  ],
+  sat: [
+    {
+      time: { type: String }
+    }
+  ],
+  sun: [
+    {
+      time: { type: String }
+    }
+  ],
+
   song: [
     {
       title: { type: String }
