@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
+router.get("/all", (req, res) => {
+  User.find((err, users) => {
+    if (err) {
+      return res.status(404).send(err);
+    }
+    if (users) {
+      return res.status(200).json(users);
+    } else {
+      return res.status(404).send("No users in Database");
+    }
+  });
+});
 router.get("/:username", (req, res) => {
   User.findOne({ username: req.params.username })
     .then(result => {
@@ -21,9 +33,14 @@ router.post("/", (req, res) => {
     if (result) {
       res.send({ msg: "User already exists" });
     } else {
-      new User(user).save().then(res => {
-        res.status(200).send(res);
-      });
+      new User(user)
+        .save()
+        .then(res => {
+          res.status(200).send({ msg: "Added successfully" });
+        })
+        .catch(err => {
+          res.send(err);
+        });
     }
   });
 });
