@@ -46,4 +46,15 @@ router.post("/", (req, res) => {
     }
   });
 });
+router.post("/count", (req, res) => {
+  User.findOne({ username: req.body.username }).then(result => {
+    if (result) {
+      data = { time: new Date().toLocaleString(), day: "Monday" };
+      result.alert.push(data);
+      result.save().then(user => res.status(200).send(user));
+    } else {
+      res.send({ msg: "Cannot find the user" });
+    }
+  });
+});
 module.exports = router;

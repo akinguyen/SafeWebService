@@ -13,7 +13,7 @@ const User = new Schema({
   },
   alert: [
     {
-      count: { type: Number },
+      time: { type: String },
       day: { type: String }
     }
   ],
