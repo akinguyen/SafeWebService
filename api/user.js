@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-
+router.get("/", (req, res) => {
+  res.send({ msg: "Test" });
+});
 router.get("/all", (req, res) => {
   User.find((err, users) => {
     if (err) {
